@@ -1,0 +1,85 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "barrierscan"
+dynamic = ["version"]
+description = "First-touch (triple-barrier) labels for OHLC bars, checked bar for bar against a brute-force oracle."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Prashant Lohar", email = "120216391+prashant7799@users.noreply.github.com" },
+]
+keywords = [
+    "triple-barrier",
+    "labeling",
+    "meta-labeling",
+    "ohlc",
+    "time-series",
+    "machine-learning",
+    "numba",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Education",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Typing :: Typed",
+]
+dependencies = [
+    "numpy>=1.24",
+    "numba>=0.59",
+]
+
+[project.optional-dependencies]
+pandas = ["pandas>=1.5"]
+dev = [
+    "pandas>=1.5",
+    "pytest>=7.4",
+    "hypothesis>=6.90",
+    "ruff==0.17.1",  # the same version as CI, so lint results match
+]
+
+[project.urls]
+Homepage = "https://github.com/prashant7799/barrierscan"
+Issues = "https://github.com/prashant7799/barrierscan/issues"
+Changelog = "https://github.com/prashant7799/barrierscan/blob/main/CHANGELOG.md"
+
+[tool.hatch.version]
+path = "src/barrierscan/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/barrierscan"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/barrierscan",
+    "tests",
+    "examples",
+    "README.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "CITATION.cff",
+    "LICENSE",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "NPY"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["barrierscan"]

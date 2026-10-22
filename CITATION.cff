@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use barrierscan, please cite the book below and, optionally, this software."
+title: "barrierscan: first-touch labels for OHLC bars"
+version: 0.1.0
+date-released: 2026-10-22
+license: MIT
+repository-code: "https://github.com/prashant7799/barrierscan"
+authors:
+  - family-names: Lohar
+    given-names: Prashant
+references:
+  - type: book
+    title: "Advances in Financial Machine Learning"
+    authors:
+      - family-names: "López de Prado"
+        given-names: Marcos
+    publisher:
+      name: Wiley
+    year: 2018
+    isbn: "978-1-119-48208-6"
